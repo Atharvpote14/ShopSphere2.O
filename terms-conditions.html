@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions - ShopSphere</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="images/logo/Picsart_26-02-11_17-00-14-844.png">
+    <style>
+        :root {
+            --terms-bg: #ffffff;
+            --terms-panel: #f8fafc;
+            --terms-border: #e2e8f0;
+            --terms-text: #1a202c;
+            --terms-muted: #64748b;
+            --terms-primary: #3b82f6;
+            --terms-heading: #2d3748;
+            --terms-link: #2563eb;
+            --terms-warning: #f59e0b;
+            --terms-danger: #ef4444;
+        }
+
+        body {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--terms-text);
+            margin: 0;
+            padding: 2rem 1rem;
+        }
+
+        .terms-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--terms-bg);
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .terms-header {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .terms-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+            letter-spacing: -0.5px;
+        }
+
+        .terms-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin: 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .terms-content {
+            padding: 3rem 2rem;
+        }
+
+        .terms-section {
+            margin-bottom: 3rem;
+        }
+
+        .terms-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .terms-section h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--terms-heading);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--terms-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .terms-section h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--terms-heading);
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .terms-section p {
+            margin-bottom: 1rem;
+            color: var(--terms-text);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .terms-section ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .terms-section li {
+            margin-bottom: 0.5rem;
+            color: var(--terms-text);
+        }
+
+        .terms-highlight {
+            background: var(--terms-panel);
+            border-left: 4px solid var(--terms-primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .terms-warning {
+            background: #fef3c7;
+            border-left: 4px solid var(--terms-warning);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .terms-danger {
+            background: #fee2e2;
+            border-left: 4px solid var(--terms-danger);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .terms-card {
+            background: var(--terms-panel);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--terms-border);
+        }
+
+        .terms-card h4 {
+            margin: 0 0 1rem 0;
+            color: var(--terms-heading);
+            font-weight: 600;
+        }
+
+        .terms-card p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--terms-muted);
+        }
+
+        .terms-link {
+            color: var(--terms-link);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .terms-link:hover {
+            color: var(--terms-primary);
+            text-decoration: underline;
+        }
+
+        .terms-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: var(--terms-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .terms-table th,
+        .terms-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--terms-border);
+        }
+
+        .terms-table th {
+            background: var(--terms-panel);
+            font-weight: 600;
+            color: var(--terms-heading);
+        }
+
+        .terms-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .last-updated {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--terms-border);
+            color: var(--terms-muted);
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--terms-primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+
+            .terms-header {
+                padding: 2rem 1.5rem;
+            }
+
+            .terms-header h1 {
+                font-size: 2rem;
+            }
+
+            .terms-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .terms-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .terms-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .terms-table {
+                font-size: 0.9rem;
+            }
+
+            .terms-table th,
+            .terms-table td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="terms-container">
+        <header class="terms-header">
+            <h1>Terms & Conditions</h1>
+            <p>These terms govern your use of ShopSphere's e-commerce platform and services. Please read them carefully.</p>
+        </header>
+
+        <div class="terms-content">
+            <section class="terms-section">
+                <h2>📋 Agreement to Terms</h2>
+                <p>By accessing and using ShopSphere ("Platform"), you agree to be bound by these Terms & Conditions ("Terms"), our <a href="privacy-policy.html" class="terms-link">Privacy Policy</a>, and all applicable laws and regulations.</p>
+                
+                <div class="terms-highlight">
+                    <h4>Acceptance of Terms</h4>
+                    <p>Your use of ShopSphere constitutes your acceptance of these Terms. If you do not agree to these Terms, you must not access or use our Platform.</p>
+                </div>
+
+                <p>ShopSphere reserves the right to modify these Terms at any time. Changes will be effective immediately upon posting on the Platform. Your continued use constitutes acceptance of any modifications.</p>
+            </section>
+
+            <section class="terms-section">
+                <h2>👤 User Accounts</h2>
+                <p>To access certain features of ShopSphere, you must create an account and provide accurate, complete, and current information.</p>
+                
+                <h3>Account Responsibilities</h3>
+                <ul>
+                    <li>Maintain confidentiality of your account credentials</li>
+                    <li>Provide accurate and truthful information during registration</li>
+                    <li>Update your account information promptly when it changes</li>
+                    <li>Accept responsibility for all activities under your account</li>
+                    <li>Notify us immediately of any unauthorized use of your account</li>
+                </ul>
+
+                <div class="terms-warning">
+                    <h4>Account Security</h4>
+                    <p>You are solely responsible for maintaining the security of your account. ShopSphere is not liable for any loss or damage arising from unauthorized access to your account.</p>
+                </div>
+
+                <h3>Account Termination</h3>
+                <p>ShopSphere reserves the right to suspend or terminate accounts that violate these Terms or engage in fraudulent activities.</p>
+            </section>
+
+            <section class="terms-section">
+                <h2>🛍️ Products and Services</h2>
+                <p>ShopSphere serves as a marketplace connecting buyers and sellers. We strive to provide accurate product information, but cannot guarantee complete accuracy.</p>
+                
+                <h3>Product Information</h3>
+                <ul>
+                    <li>Product descriptions are provided by sellers</li>
+                    <li>Prices are subject to change without notice</li>
+                    <li>Product availability is not guaranteed</li>
+                    <li>Colors and appearances may vary slightly due to monitor settings</li>
+                </ul>
+
+                <div class="terms-highlight">
+                    <h4>Product Accuracy</h4>
+                    <p>While we make efforts to ensure product information accuracy, ShopSphere does not warrant that product descriptions or other content are error-free. We reserve the right to correct any errors.</p>
+                </div>
+            </section>
+
+            <section class="terms-section">
+                <h2>💰 Pricing and Payments</h2>
+                <p>All prices on ShopSphere are displayed in the currency selected by the user and include applicable taxes unless otherwise specified.</p>
+                
+                <h3>Payment Terms</h3>
+                <ul>
+                    <li>Payment must be made at the time of purchase</li>
+                    <li>We accept various payment methods as displayed on checkout</li>
+                    <li>All transactions are processed securely through third-party payment processors</li>
+                    <li>Prices are final and non-negotiable</li>
+                </ul>
+
+                <table class="terms-table">
+                    <thead>
+                        <tr>
+                            <th>Payment Method</th>
+                            <th>Processing Time</th>
+                            <th>Security</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Credit/Debit Cards</td>
+                            <td>Instant</td>
+                            <td>PCI DSS Compliant</td>
+                        </tr>
+                        <tr>
+                            <td>Digital Wallets</td>
+                            <td>Instant</td>
+                            <td>Encrypted</td>
+                        </tr>
+                        <tr>
+                            <td>Bank Transfer</td>
+                            <td>1-3 Business Days</td>
+                            <td>Bank Secured</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="terms-warning">
+                    <h4>Payment Security</h4>
+                    <p>ShopSphere does not store complete payment information. All payment processing is handled by secure, PCI-compliant third-party payment processors.</p>
+                </div>
+            </section>
+
+            <section class="terms-section">
+                <h2>📦 Orders and Cancellations</h2>
+                <p>Your order constitutes an offer to purchase. ShopSphere reserves the right to accept or reject any order for any reason.</p>
+                
+                <h3>Order Processing</h3>
+                <ul>
+                    <li>Order confirmation is sent via email upon successful placement</li>
+                    <li>Order processing typically takes 1-2 business days</li>
+                    <li>Shipping times vary based on location and product availability</li>
+                    <li>Order status can be tracked through your account</li>
+                </ul>
+
+                <h3>Cancellation Rights</h3>
+                <div class="terms-grid">
+                    <div class="terms-card">
+                        <h4>Before Shipment</h4>
+                        <p>Full refund available within 24 hours of order placement</p>
+                    </div>
+                    <div class="terms-card">
+                        <h4>After Shipment</h4>
+                        <p>Follow our return policy for refund eligibility</p>
+                    </div>
+                    <div class="terms-card">
+                        <h4>Digital Products</h4>
+                        <p>Cancellation only before download/access is provided</p>
+                    </div>
+                    <div class="terms-card">
+                        <h4>Custom Orders</h4>
+                        <p>No cancellations after production begins</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="terms-section">
+                <h2>🛡️ Intellectual Property</h2>
+                <p>All content on ShopSphere, including logos, designs, text, graphics, images, and software, is owned by ShopSphere or its licensors and protected by intellectual property laws.</p>
+                
+                <h3>ShopSphere Property</h3>
+                <ul>
+                    <li>Platform design and functionality</li>
+                    <li>Brand elements and trademarks</li>
+                    <li>Software and proprietary technology</li>
+                    <li>Content created by ShopSphere</li>
+                </ul>
+
+                <h3>User Content</h3>
+                <p>By posting content on ShopSphere, you grant us a worldwide, non-exclusive, royalty-free license to use, reproduce, and display such content for platform operation and marketing purposes.</p>
+
+                <div class="terms-danger">
+                    <h4>Prohibited Use</h4>
+                    <p>You may not copy, modify, distribute, or create derivative works of ShopSphere's intellectual property without explicit written permission.</p>
+                </div>
+            </section>
+
+            <section class="terms-section">
+                <h2>🚫 Prohibited Activities</h2>
+                <p>Users of ShopSphere are prohibited from engaging in the following activities:</p>
+                
+                <div class="terms-grid">
+                    <div class="terms-card">
+                        <h4>Fraudulent Activities</h4>
+                        <p>Identity theft, payment fraud, fake orders, or any deceptive practices</p>
+                    </div>
+                    <div class="terms-card">
+                        <h4>Illegal Content</h4>
+                        <p>Posting or selling prohibited items, counterfeit goods, or illegal services</p>
+                    </div>
+                    <div class="terms-card">
+                        <h4>System Abuse</h4>
+                        <p>Hacking, malware distribution, spam, or interference with platform functionality</p>
+                    </div>
+                    <div class="terms-card">
+                        <h4>Policy Violations</h4>
+                        <p>Violating seller policies, manipulating reviews, or circumventing platform rules</p>
+                    </div>
+                </div>
+
+                <h3>Consequences</h3>
+                <ul>
+                    <li>Immediate account suspension or termination</li>
+                    <li>Removal of prohibited content</li>
+                    <li>Legal action for serious violations</li>
+                    <li>Reporting to law enforcement authorities when appropriate</li>
+                </ul>
+            </section>
+
+            <section class="terms-section">
+                <h2>⚖️ Limitation of Liability</h2>
+                <p>ShopSphere provides the platform "as is" without warranties of any kind, express or implied.</p>
+                
+                <h3>Disclaimer of Warranties</h3>
+                <ul>
+                    <li>No warranty of uninterrupted or error-free operation</li>
+                    <li>No warranty regarding product quality or accuracy</li>
+                    <li>No warranty of fitness for a particular purpose</li>
+                    <li>No warranty regarding third-party services or products</li>
+                </ul>
+
+                <div class="terms-warning">
+                    <h4>Limitation of Damages</h4>
+                    <p>To the maximum extent permitted by law, ShopSphere's total liability for any claim arising from these Terms or use of the Platform shall not exceed the amount paid by you for the relevant transaction.</p>
+                </div>
+
+                <h3>Excluded Damages</h3>
+                <p>ShopSphere shall not be liable for any indirect, incidental, special, or consequential damages, including but not limited to loss of profits, data, or business opportunities.</p>
+            </section>
+
+            <section class="terms-section">
+                <h2>🤝 Dispute Resolution</h2>
+                <p>ShopSphere is committed to resolving disputes amicably and efficiently.</p>
+                
+                <h3>Resolution Process</h3>
+                <ul>
+                    <li><strong>Step 1:</strong> Contact our customer support within 30 days of the issue</li>
+                    <li><strong>Step 2:</strong> Provide all relevant documentation and details</li>
+                    <li><strong>Step 3:</strong> Allow 5-7 business days for initial response</li>
+                    <li><strong>Step 4:</strong> Escalation to senior support if unresolved</li>
+                </ul>
+
+                <h3>Alternative Dispute Resolution</h3>
+                <p>If disputes cannot be resolved through customer support, parties agree to attempt resolution through mediation before pursuing litigation.</p>
+
+                <div class="terms-highlight">
+                    <h4>Time Limitations</h4>
+                    <p>All claims must be brought within one year of the event giving rise to the claim, otherwise they are barred.</p>
+                </div>
+            </section>
+
+            <section class="terms-section">
+                <h2>⚖️ Governing Law</h2>
+                <p>These Terms & Conditions shall be governed by and construed in accordance with the laws of India, without regard to its conflict of law principles.</p>
+                
+                <h3>Jurisdiction</h3>
+                <ul>
+                    <li>Any legal action shall be brought in courts located in Mumbai, India</li>
+                    <li>Both parties consent to exclusive jurisdiction of these courts</li>
+                    <li>International users agree to comply with applicable local laws</li>
+                </ul>
+
+                <h3>Severability</h3>
+                <p>If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall remain in full force and effect.</p>
+
+                <h3>Entire Agreement</h3>
+                <p>These Terms constitute the entire agreement between you and ShopSphere regarding the use of the Platform, superseding all prior agreements.</p>
+            </section>
+
+            <section class="terms-section">
+                <h2>📞 Contact Information</h2>
+                <p>For questions about these Terms & Conditions, please contact us:</p>
+                
+                <div class="terms-grid">
+                    <div class="terms-card">
+                        <h4>Legal Inquiries</h4>
+                        <p>Email: <a href="mailto:atharvpote14@gmail.com" class="terms-link">atharvpote14@gmail.com</a></p>
+                    </div>
+                    <div class="terms-card">
+                        <h4>Customer Support</h4>
+                        <p>Email: <a href="mailto:atharvpote14@gmail.com" class="terms-link">atharvpote14@gmail.com</a></p>
+                    </div>
+                    <div class="terms-card">
+                        <h4>Business Address</h4>
+                        <p>ShopSphere Headquarters<br>Mumbai, Maharashtra<br>India</p>
+                    </div>
+                    <div class="terms-card">
+                        <h4>Operating Hours</h4>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM IST<br>Weekend: Limited Support</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="last-updated">
+            <p><strong>Last Updated:</strong> December 11, 2024</p>
+            <p><strong>Effective Date:</strong> December 11, 2024</p>
+        </div>
+    </div>
+
+    <a href="#top" class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</a>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Show/hide back to top button based on scroll position
+        window.addEventListener('scroll', function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.style.display = 'flex';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+
+        // Hide back to top button initially
+        document.querySelector('.back-to-top').style.display = 'none';
+    </script>
+</body>
+</html>

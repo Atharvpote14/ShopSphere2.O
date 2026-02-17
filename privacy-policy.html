@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - ShopSphere</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="images/logo/Picsart_26-02-11_17-00-14-844.png">
+    <style>
+        :root {
+            --privacy-bg: #ffffff;
+            --privacy-panel: #f8fafc;
+            --privacy-border: #e2e8f0;
+            --privacy-text: #1a202c;
+            --privacy-muted: #64748b;
+            --privacy-primary: #3b82f6;
+            --privacy-heading: #2d3748;
+            --privacy-link: #2563eb;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--privacy-text);
+            margin: 0;
+            padding: 2rem 1rem;
+        }
+
+        .privacy-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--privacy-bg);
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .privacy-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .privacy-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+            letter-spacing: -0.5px;
+        }
+
+        .privacy-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin: 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .privacy-content {
+            padding: 3rem 2rem;
+        }
+
+        .privacy-section {
+            margin-bottom: 3rem;
+        }
+
+        .privacy-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .privacy-section h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--privacy-heading);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--privacy-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .privacy-section h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--privacy-heading);
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .privacy-section p {
+            margin-bottom: 1rem;
+            color: var(--privacy-text);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .privacy-section ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .privacy-section li {
+            margin-bottom: 0.5rem;
+            color: var(--privacy-text);
+        }
+
+        .privacy-highlight {
+            background: var(--privacy-panel);
+            border-left: 4px solid var(--privacy-primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .privacy-highlight h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--privacy-primary);
+            font-weight: 600;
+        }
+
+        .privacy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .privacy-card {
+            background: var(--privacy-panel);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--privacy-border);
+        }
+
+        .privacy-card h4 {
+            margin: 0 0 1rem 0;
+            color: var(--privacy-heading);
+            font-weight: 600;
+        }
+
+        .privacy-card p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--privacy-muted);
+        }
+
+        .privacy-link {
+            color: var(--privacy-link);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .privacy-link:hover {
+            color: var(--privacy-primary);
+            text-decoration: underline;
+        }
+
+        .privacy-contact {
+            background: linear-gradient(135deg, #f6f8fb 0%, #e9ecef 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .privacy-contact h3 {
+            margin: 0 0 1rem 0;
+            color: var(--privacy-heading);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--privacy-muted);
+        }
+
+        .last-updated {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--privacy-border);
+            color: var(--privacy-muted);
+            font-size: 0.9rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--privacy-primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+
+            .privacy-header {
+                padding: 2rem 1.5rem;
+            }
+
+            .privacy-header h1 {
+                font-size: 2rem;
+            }
+
+            .privacy-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .privacy-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .privacy-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="privacy-container">
+        <header class="privacy-header">
+            <h1>Privacy Policy</h1>
+            <p>Your privacy is important to us. This policy explains how ShopSphere collects, uses, and protects your information.</p>
+        </header>
+
+        <div class="privacy-content">
+            <section class="privacy-section">
+                <h2>📋 Information We Collect</h2>
+                <p>At ShopSphere, we collect various types of information to provide you with the best shopping experience:</p>
+                
+                <div class="privacy-grid">
+                    <div class="privacy-card">
+                        <h4>Personal Information</h4>
+                        <p>Name, email address, phone number, shipping and billing addresses</p>
+                    </div>
+                    <div class="privacy-card">
+                        <h4>Account Information</h4>
+                        <p>Username, password (encrypted), purchase history, preferences</p>
+                    </div>
+                    <div class="privacy-card">
+                        <h4>Payment Information</h4>
+                        <p>Credit/debit card details, billing information (processed securely)</p>
+                    </div>
+                    <div class="privacy-card">
+                        <h4>Technical Information</h4>
+                        <p>IP address, browser type, device information, browsing behavior</p>
+                    </div>
+                </div>
+
+                <h3>How We Collect Information</h3>
+                <ul>
+                    <li>When you create an account or make a purchase</li>
+                    <li>When you browse our website and use our services</li>
+                    <li>When you communicate with our customer support</li>
+                    <li>Through cookies and similar technologies</li>
+                    <li>When you participate in promotions or surveys</li>
+                </ul>
+            </section>
+
+            <section class="privacy-section">
+                <h2>🎯 How We Use Your Information</h2>
+                <p>We use your information for various purposes to enhance your shopping experience:</p>
+                
+                <div class="privacy-highlight">
+                    <h4>Primary Uses</h4>
+                    <p>Processing orders, managing your account, providing customer support, personalizing your shopping experience, and sending important notifications about your orders.</p>
+                </div>
+
+                <h3>Specific Purposes</h3>
+                <ul>
+                    <li><strong>Order Processing:</strong> To process, fulfill, and deliver your orders</li>
+                    <li><strong>Account Management:</strong> To create and manage your ShopSphere account</li>
+                    <li><strong>Customer Support:</strong> To respond to your inquiries and provide assistance</li>
+                    <li><strong>Personalization:</strong> To recommend products and customize your experience</li>
+                    <li><strong>Marketing:</strong> To send promotional offers (with your consent)</li>
+                    <li><strong>Security:</strong> To detect fraud and maintain platform security</li>
+                    <li><strong>Analytics:</strong> To improve our services and user experience</li>
+                </ul>
+            </section>
+
+            <section class="privacy-section">
+                <h2>🍪 Cookies and Tracking Technologies</h2>
+                <p>ShopSphere uses cookies and similar technologies to enhance your browsing experience:</p>
+                
+                <h3>Types of Cookies We Use</h3>
+                <ul>
+                    <li><strong>Essential Cookies:</strong> Required for basic website functionality</li>
+                    <li><strong>Performance Cookies:</strong> Help us understand how you use our website</li>
+                    <li><strong>Functional Cookies:</strong> Remember your preferences and settings</li>
+                    <li><strong>Marketing Cookies:</strong> Show you relevant advertisements (with consent)</li>
+                </ul>
+
+                <div class="privacy-highlight">
+                    <h4>Your Cookie Choices</h4>
+                    <p>You can control cookie preferences through your browser settings or our cookie consent banner. However, disabling certain cookies may affect website functionality.</p>
+                </div>
+            </section>
+
+            <section class="privacy-section">
+                <h2>🤝 Third-Party Services</h2>
+                <p>We work with trusted third-party service providers to operate our platform:</p>
+                
+                <div class="privacy-grid">
+                    <div class="privacy-card">
+                        <h4>Payment Processors</h4>
+                        <p>Secure payment gateways for processing transactions</p>
+                    </div>
+                    <div class="privacy-card">
+                        <h4>Shipping Partners</h4>
+                        <p>Reliable delivery services for order fulfillment</p>
+                    </div>
+                    <div class="privacy-card">
+                        <h4>Analytics Providers</h4>
+                        <p>Tools to understand and improve user experience</p>
+                    </div>
+                    <div class="privacy-card">
+                        <h4>Marketing Platforms</h4>
+                        <p>Email and advertising services (with consent)</p>
+                    </div>
+                </div>
+
+                <p>All third-party partners are carefully vetted and contractually obligated to protect your data in accordance with this privacy policy.</p>
+            </section>
+
+            <section class="privacy-section">
+                <h2>💳 Payment Processing</h2>
+                <p>Payment security is our top priority at ShopSphere:</p>
+                
+                <h3>Security Measures</h3>
+                <ul>
+                    <li>PCI DSS compliant payment processing</li>
+                    <li>SSL encryption for all payment transactions</li>
+                    <li>Tokenization of sensitive payment data</li>
+                    <li>Regular security audits and vulnerability assessments</li>
+                </ul>
+
+                <div class="privacy-highlight">
+                    <h4>Important Note</h4>
+                    <p>ShopSphere does not store complete credit card numbers. Payment information is processed by secure third-party payment processors who are PCI DSS compliant.</p>
+                </div>
+            </section>
+
+            <section class="privacy-section">
+                <h2>🔒 Data Security</h2>
+                <p>We implement robust security measures to protect your information:</p>
+                
+                <h3>Security Technologies</h3>
+                <ul>
+                    <li><strong>Encryption:</strong> Data is encrypted both in transit and at rest</li>
+                    <li><strong>Access Controls:</strong> Strict authentication and authorization systems</li>
+                    <li><strong>Regular Audits:</strong> Periodic security assessments and penetration testing</li>
+                    <li><strong>Employee Training:</strong> Regular security awareness training for our team</li>
+                </ul>
+
+                <p>While we take reasonable precautions to protect your information, no method of transmission over the internet is 100% secure.</p>
+            </section>
+
+            <section class="privacy-section">
+                <h2>👤 Your Rights and Choices</h2>
+                <p>You have the following rights regarding your personal information:</p>
+                
+                <div class="privacy-grid">
+                    <div class="privacy-card">
+                        <h4>Access</h4>
+                        <p>Request a copy of your personal information</p>
+                    </div>
+                    <div class="privacy-card">
+                        <h4>Correction</h4>
+                        <p>Update or correct inaccurate information</p>
+                    </div>
+                    <div class="privacy-card">
+                        <h4>Deletion</h4>
+                        <p>Request deletion of your personal information</p>
+                    </div>
+                    <div class="privacy-card">
+                        <h4>Portability</h4>
+                        <p>Receive your data in a machine-readable format</p>
+                    </div>
+                </div>
+
+                <h3>How to Exercise Your Rights</h3>
+                <p>To exercise any of these rights, please contact us using the information provided below. We'll respond within 30 days.</p>
+            </section>
+
+            <section class="privacy-section">
+                <h2>📧 Contact Information</h2>
+                <p>If you have questions about this Privacy Policy or need to exercise your rights, please contact us:</p>
+                
+                <div class="privacy-contact">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>📧</span>
+                            <a href="mailto:atharvpote14@gmail.com" class="privacy-link">atharvpote14@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://www.shopsphere.com/privacy-support" class="privacy-link">Privacy Support Portal</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>📍</span>
+                            <span>ShopSphere Privacy Team</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="privacy-section">
+                <h2>🔄 Policy Updates</h2>
+                <p>We may update this Privacy Policy from time to time to reflect changes in our practices or applicable laws. Any changes will be posted on this page with an updated effective date.</p>
+                
+                <div class="privacy-highlight">
+                    <h4>Staying Informed</h4>
+                    <p>We encourage you to review this Privacy Policy periodically. Continued use of ShopSphere services indicates acceptance of any changes.</p>
+                </div>
+            </section>
+        </div>
+
+        <div class="last-updated">
+            <p><strong>Last Updated:</strong> December 11, 2024</p>
+            <p><strong>Effective Date:</strong> December 11, 2024</p>
+        </div>
+    </div>
+
+    <a href="#top" class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</a>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Show/hide back to top button based on scroll position
+        window.addEventListener('scroll', function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.style.display = 'flex';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+
+        // Hide back to top button initially
+        document.querySelector('.back-to-top').style.display = 'none';
+    </script>
+</body>
+</html>

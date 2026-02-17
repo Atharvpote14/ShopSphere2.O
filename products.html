@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - ShopSphere</title>
+    <meta name="description" content="Browse our extensive collection of premium products">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/logo/Picsart_26-02-11_17-00-14-844.png">
+    <style>
+        /* Additional styles for products page */
+        .products-header {
+            position: relative;
+            background: linear-gradient(0deg, rgba(255,255,255,0.65), rgba(255,255,255,0.65)), url('images/Banner/banner-1.png') center/cover no-repeat;
+            padding: 6rem 0 2rem;
+            margin-top: 80px;
+        }
+        .products-header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0) 70%);
+            pointer-events: none;
+        }
+        
+        .products-header .container {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1rem;
+            align-items: end;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .products-header .hero-title-main {
+            font-size: 3rem;
+            color: #fff;
+            text-shadow: none;
+            margin: 0;
+            font-weight: 800;
+            letter-spacing: 0.2px;
+            line-height: 1.15;
+        }
+        
+        .products-header .hero-description {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.05rem;
+            margin-top: 0.4rem;
+        }
+        
+        .breadcrumb {
+            margin-top: 0.75rem;
+            color: rgba(255,255,255,0.85);
+            font-size: 0.95rem;
+        }
+        
+        .breadcrumb a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+        }
+        
+        .header-search {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        
+        .header-search-input {
+            width: 280px;
+            max-width: 100%;
+            padding: 0.7rem 0.9rem;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            background: var(--bg-primary);
+        }
+        
+        .header-search-btn {
+            padding: 0.7rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            background: var(--bg-primary);
+            cursor: pointer;
+        }
+        
+        .quick-chips {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .quick-chip {
+            padding: 0.4rem 0.7rem;
+            border: 1px solid var(--border-color);
+            border-radius: 999px;
+            background: var(--bg-primary);
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+        
+        .quick-chip.active {
+            background: var(--primary-color);
+            color: #fff;
+            border-color: var(--primary-color);
+        }
+        
+        
+        
+        .products-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+        }
+        
+        .filters-sidebar {
+            background: var(--bg-primary);
+            border-radius: 16px;
+            padding: 1.5rem;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .filter-section {
+            margin-bottom: 2rem;
+        }
+        
+        .filter-section h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            cursor: pointer;
+            transition: color var(--transition-fast);
+        }
+        
+        .filter-option:hover {
+            color: var(--primary-color);
+        }
+        
+        .filter-option input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-color);
+        }
+        
+        .price-range {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            margin-top: 1rem;
+        }
+        
+        .price-input {
+            width: 80px;
+            padding: 0.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .products-main {
+            min-height: 100vh;
+        }
+        
+        .products-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .toolbar-left,
+        .toolbar-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .results-count {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+        
+        .sort-dropdown {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-primary);
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: border-color var(--transition-fast);
+        }
+        
+        .sort-dropdown:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .view-options {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .view-btn {
+            padding: 0.5rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .view-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .filter-toggle {
+            padding: 0.65rem 0.9rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-primary);
+            cursor: pointer;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            box-shadow: var(--shadow-sm);
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+            overflow: hidden;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+        
+        .product-image {
+            position: relative;
+            height: 220px;
+            border-bottom: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-fast);
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 0.35rem 0.6rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .product-wishlist {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(255,255,255,0.9);
+            border: 1px solid var(--border-color);
+            border-radius: 999px;
+            width: 36px;
+            height: 36px;
+            display: grid;
+            place-items: center;
+        }
+        
+        .product-info {
+            padding: 1rem;
+        }
+        
+        .product-title {
+            font-size: 1rem;
+            line-height: 1.3;
+            margin: 0 0 0.5rem 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .price-current {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .price-original {
+            text-decoration: line-through;
+            color: var(--text-secondary);
+        }
+        
+        .price-discount {
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            padding: 0.15rem 0.4rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+        }
+        
+        .active-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 0 0 1rem 0;
+        }
+        
+        .filter-chip {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.6rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 999px;
+            font-size: 0.85rem;
+        }
+        
+        .chip-remove {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+        }
+        
+        .products-grid.list-view {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        
+        .list-view .product-card {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+        }
+        
+        .list-view .product-image {
+            width: 200px;
+            height: 150px;
+            flex-shrink: 0;
+        }
+        
+        .list-view .product-info {
+            flex: 1;
+            padding: 0 1rem;
+        }
+        
+        .loading-skeleton {
+            background: linear-gradient(90deg, var(--bg-tertiary) 25%, var(--border-color) 50%, var(--bg-tertiary) 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+        }
+        
+        .page-btn {
+            padding: 0.5rem 0.75rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            min-width: 40px;
+            text-align: center;
+        }
+        
+        .page-btn:hover {
+            background: var(--bg-secondary);
+            border-color: var(--primary-color);
+        }
+        
+        .page-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .page-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        /* Tablet adjustments to reduce overflow and avoid zooming */
+        /* Prevent horizontal bleed/overflow */
+        html, body {
+            overflow-x: hidden;
+        }
+        .products-header {
+            overflow: hidden;
+            background-position: center;
+            background-size: cover;
+        }
+
+        @media (max-width: 1024px) {
+            .products-header {
+                padding: 4rem 0 1.5rem;
+                margin-top: 72px;
+            }
+            .products-header .container {
+            .products-header .container {
+                grid-template-columns: 1fr;
+            }
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            .nav-right {
+                margin-top: 0.5rem;
+            }
+            .products-container {
+                padding: 0 0.75rem;
+                gap: 1.5rem;
+            }
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .products-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .filters-sidebar {
+                position: fixed;
+                inset: 0 0 0 auto;
+                width: 85%;
+                max-width: 360px;
+                height: 100%;
+                overflow-y: auto;
+                margin: 0;
+                transform: translateX(100%);
+                transition: transform var(--transition-fast);
+                z-index: 1000;
+            }
+            
+            .filters-sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .overlay.active {
+                display: block;
+            }
+            
+            .products-toolbar {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: stretch;
+            }
+            
+            .list-view .product-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .list-view .product-image {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .products-header .hero-title-main {
+                font-size: 2rem;
+            }
+            .products-header .hero-description {
+                font-size: 0.95rem;
+            }
+            .header-search {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.5rem;
+            }
+            .header-search-input {
+                width: 100%;
+            }
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1.25rem;
+            }
+            .products-toolbar {
+                padding: 0.75rem;
+            }
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            .nav-right {
+                margin-top: 0.5rem;
+            }
+            /* Tone down header overlay to avoid RGB glow spill on small devices */
+            .products-header::before {
+                background: linear-gradient(90deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0) 70%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-left">
+                    <a href="index.html" class="logo">
+                        <img class="logo-img" src="images/logo/Picsart_26-02-11_17-00-14-844.png" alt="ShopSphere logo">
+                        <span class="logo-text">ShopSphere</span>
+                    </a>
+                    <div class="nav-links" style="margin-left: 2rem; margin-right: 1rem;">
+                        <a href="index.html" class="nav-link" style="text-decoration: none; color: var(--text-primary); font-weight: 500;">Home</a>
+                    </div>
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Search products...">
+                        <button class="search-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <button class="nav-btn account-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span>Account</span>
+                    </button>
+                    <button class="nav-btn cart-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 2 3 9v13a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9l-6-7z"></path>
+                            <line x1="3" y1="9" x2="21" y2="9"></line>
+                            <path d="M9 22V12h6v10"></path>
+                        </svg>
+                        <span>Cart</span>
+                        <span class="cart-count">0</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Products Header -->
+    <section class="products-header">
+        <div class="container">
+            <div>
+                <h1 class="hero-title-main">All Products</h1>
+                <p class="hero-description">Discover our complete collection of premium products</p>
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a> &gt; <span style="color: var(--text-primary); font-weight: 600;">Products</span>
+                </div>
+                <div class="quick-chips" id="quickChips">
+                    <button class="quick-chip active" data-cat="all">All</button>
+                    <button class="quick-chip" data-cat="electronics">Electronics</button>
+                    <button class="quick-chip" data-cat="fashion">Fashion</button>
+                    <button class="quick-chip" data-cat="home">Home & Living</button>
+                    <button class="quick-chip" data-cat="sports">Sports & Fitness</button>
+                    <button class="quick-chip" data-cat="beauty">Beauty</button>
+                    <button class="quick-chip" data-cat="books">Books</button>
+                </div>
+            </div>
+            <div class="header-search">
+                <input type="text" class="header-search-input" id="headerSearchInput" placeholder="Search products...">
+                <button class="header-search-btn" id="headerSearchBtn">Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products">
+        <div class="products-container">
+            <!-- Filters Sidebar -->
+            <aside class="filters-sidebar">
+                <div class="filter-section">
+                    <h3>Categories</h3>
+                    <div class="filter-option">
+                        <input type="checkbox" id="cat-electronics" checked>
+                        <label for="cat-electronics">Electronics</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="cat-fashion" checked>
+                        <label for="cat-fashion">Fashion</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="cat-home" checked>
+                        <label for="cat-home">Home & Living</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="cat-sports" checked>
+                        <label for="cat-sports">Sports & Fitness</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="cat-beauty" checked>
+                        <label for="cat-beauty">Beauty</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="cat-books" checked>
+                        <label for="cat-books">Books</label>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Price Range</h3>
+                    <div class="price-range">
+                        <input type="number" class="price-input" id="minPrice" placeholder="Min" min="0">
+                        <span>-</span>
+                        <input type="number" class="price-input" id="maxPrice" placeholder="Max" min="0">
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Rating</h3>
+                    <div class="filter-option">
+                        <input type="checkbox" id="rating-4">
+                        <label for="rating-4">4★ & above</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="rating-3">
+                        <label for="rating-3">3★ & above</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="rating-2">
+                        <label for="rating-2">2★ & above</label>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Availability</h3>
+                    <div class="filter-option">
+                        <input type="checkbox" id="in-stock" checked>
+                        <label for="in-stock">In Stock</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="sale">
+                        <label for="sale">On Sale</label>
+                    </div>
+                </div>
+
+                <button class="add-to-cart" style="width: 100%; margin-top: 1rem;" onclick="applyFilters()">Apply Filters</button>
+                <button class="btn-secondary" style="width: 100%; margin-top: 0.5rem;" onclick="clearFilters()">Clear Filters</button>
+            </aside>
+
+            <!-- Products Main -->
+            <main class="products-main">
+                <div class="products-toolbar">
+                    <div class="toolbar-left">
+                        <div class="results-count">
+                            Showing <span id="resultsCount">24</span> products
+                        </div>
+                        <button class="filter-toggle" id="toggleFilters">Filters</button>
+                    </div>
+                    <div class="toolbar-right">
+                        <button class="view-btn active" onclick="setView('grid')" title="Grid View">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="14" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                            </svg>
+                        </button>
+                        <button class="view-btn" onclick="setView('list')" title="List View">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="8" y1="6" x2="21" y2="6"></line>
+                                <line x1="8" y1="12" x2="21" y2="12"></line>
+                                <line x1="8" y1="18" x2="21" y2="18"></line>
+                                <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                                <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                            </svg>
+                        </button>
+                        <select class="sort-dropdown" id="sortDropdown" onchange="sortProducts()">
+                            <option value="featured">Featured</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Highest Rated</option>
+                            <option value="newest">Newest First</option>
+                        </select>
+                        <select class="sort-dropdown" id="pageSizeSelect" onchange="setPageSize(this.value)">
+                            <option value="12" selected>12 per page</option>
+                            <option value="24">24 per page</option>
+                            <option value="48">48 per page</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="active-filters" id="activeFilters"></div>
+
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be dynamically loaded here -->
+                </div>
+
+                <div class="pagination" id="pagination">
+                    <!-- Pagination will be dynamically generated -->
+                </div>
+                <div style="display: flex; justify-content: center; margin-top: 1rem;">
+                    <button class="page-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">Back to Top</button>
+                </div>
+            </main>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-icon">⬢</span>
+                        <span class="logo-text">ShopSphere</span>
+                    </div>
+                    <p>Your premium global shopping destination for the best products worldwide.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">f</a>
+                        <a href="#" aria-label="Twitter">𝕏</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="LinkedIn">in</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="#">All Categories</a></li>
+                        <li><a href="#">Today's Deals</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Best Sellers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="#">About ShopSphere</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ShopSphere. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart" id="closeCart">×</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically loaded here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <script src="js/products.js"></script>
+    <script>
+        function clearFilters() {
+            document.querySelectorAll('.filter-section input[type="checkbox"][id^="cat-"]').forEach(cb => cb.checked = false);
+            const min = document.getElementById('minPrice'); if (min) min.value = '';
+            const max = document.getElementById('maxPrice'); if (max) max.value = '';
+            ['rating-4','rating-3','rating-2'].forEach(id => { const el = document.getElementById(id); if (el) el.checked = false; });
+            const inStock = document.getElementById('in-stock'); if (inStock) inStock.checked = true;
+            const sale = document.getElementById('sale'); if (sale) sale.checked = false;
+            applyFilters();
+        }
+        function setPageSize(val) {
+            const n = parseInt(val) || 12;
+            productsPage.productsPerPage = n;
+            productsPage.currentPage = 1;
+            productsPage.renderProducts();
+            productsPage.renderPagination();
+        }
+        const toggleBtn = document.getElementById('toggleFilters');
+        const sidebar = document.querySelector('.filters-sidebar');
+        const overlayEl = document.getElementById('overlay');
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('open');
+                overlayEl.classList.toggle('active');
+            });
+        }
+        if (overlayEl) {
+            overlayEl.addEventListener('click', () => {
+                sidebar.classList.remove('open');
+                overlayEl.classList.remove('active');
+            });
+        }
+        const chips = document.getElementById('quickChips');
+        function updateQuickChips(selectedCat) {
+            document.querySelectorAll('.quick-chip').forEach(chip => {
+                chip.classList.toggle('active', chip.dataset.cat === selectedCat || (selectedCat === 'all' && chip.dataset.cat === 'all'));
+                if (selectedCat !== 'all' && chip.dataset.cat === 'all') chip.classList.remove('active');
+            });
+        }
+        if (chips) {
+            chips.addEventListener('click', (e) => {
+                const btn = e.target.closest('.quick-chip');
+                if (!btn) return;
+                const cat = btn.dataset.cat;
+                document.querySelectorAll('.filter-section input[type="checkbox"][id^="cat-"]').forEach(cb => cb.checked = false);
+                if (cat !== 'all') {
+                    const cb = document.getElementById(`cat-${cat}`);
+                    if (cb) cb.checked = true;
+                }
+                updateQuickChips(cat);
+                applyFilters();
+            });
+        }
+        const headerSearchInput = document.getElementById('headerSearchInput');
+        const headerSearchBtn = document.getElementById('headerSearchBtn');
+        headerSearchInput?.addEventListener('input', (e) => productsPage.handleSearch(e.target.value));
+        headerSearchBtn?.addEventListener('click', () => productsPage.handleSearch(headerSearchInput.value));
+    </script>
+</body>
+</html>

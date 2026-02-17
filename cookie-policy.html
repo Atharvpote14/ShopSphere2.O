@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Policy - ShopSphere</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="images/logo/Picsart_26-02-11_17-00-14-844.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cookie-bg: #ffffff;
+            --cookie-panel: #f8fafc;
+            --cookie-border: #e2e8f0;
+            --cookie-text: #1e293b;
+            --cookie-muted: #64748b;
+            --cookie-primary: #3b82f6;
+            --cookie-secondary: #8b5cf6;
+            --cookie-success: #10b981;
+            --cookie-warning: #f59e0b;
+            --cookie-danger: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            color: var(--cookie-text);
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-date {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out 0.2s;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease-out 0.4s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* What Are Cookies Section */
+        .what-are-cookies {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 4rem 0;
+            align-items: center;
+        }
+
+        .cookie-icon {
+            width: 120px;
+            height: 120px;
+            background: var(--cookie-primary);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .cookie-text h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--cookie-text);
+            margin-bottom: 1rem;
+        }
+
+        .cookie-text p {
+            color: var(--cookie-muted);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Cookie Categories */
+        .cookie-categories {
+            margin: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--cookie-text);
+            margin-bottom: 3rem;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid var(--cookie-border);
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .essential { background: linear-gradient(135deg, #10b981, #059669); }
+        .performance { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+        .functional { background: linear-gradient(135deg, #8b5cf6, #6366f1); }
+        .marketing { background: linear-gradient(135deg, #f59e0b, #d97706); }
+
+        .category-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--cookie-text);
+        }
+
+        .category-description {
+            color: var(--cookie-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .category-details {
+            background: var(--cookie-panel);
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-label {
+            font-weight: 500;
+            color: var(--cookie-text);
+        }
+
+        .detail-value {
+            color: var(--cookie-muted);
+        }
+
+        /* Third Party Section */
+        .third-party {
+            margin: 4rem 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--cookie-panel);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+
+        .service-name {
+            font-weight: 600;
+            color: var(--cookie-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-type {
+            color: var(--cookie-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Cookie Choices Section */
+        .cookie-choices {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 4rem 0;
+        }
+
+        .choices-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--cookie-text);
+            margin-bottom: 2rem;
+        }
+
+        .choice-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .choice-btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-accept {
+            background: var(--cookie-success);
+            color: white;
+        }
+
+        .btn-reject {
+            background: var(--cookie-danger);
+            color: white;
+        }
+
+        .btn-customize {
+            background: white;
+            color: var(--cookie-primary);
+            border: 2px solid var(--cookie-primary);
+        }
+
+        .choice-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin: 4rem 0;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: white;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--cookie-text);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--cookie-panel);
+        }
+
+        .faq-toggle {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-answer.active {
+            padding: 1.5rem;
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            color: var(--cookie-muted);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 3rem;
+            background: white;
+            border-radius: 16px;
+            margin: 4rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .cta-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--cookie-text);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-link {
+            color: var(--cookie-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .cta-link:hover {
+            color: var(--cookie-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .what-are-cookies {
+                grid-template-columns: 1fr;
+            }
+
+            .choice-buttons {
+                flex-direction: column;
+            }
+
+            .cta-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Cookie Policy</h1>
+            <div class="hero-date">Last Updated: December 11, 2024</div>
+            <p>Learn how ShopSphere uses cookies to enhance your shopping experience and protect your privacy.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- What Are Cookies Section -->
+        <section class="what-are-cookies">
+            <div class="cookie-icon">🍪</div>
+            <div class="cookie-text">
+                <h2>What Are Cookies?</h2>
+                <p>Cookies are small text files stored on your device when you visit websites. They help us remember your preferences, improve your experience, and provide personalized content. ShopSphere uses cookies responsibly to enhance functionality and security.</p>
+            </div>
+        </section>
+
+        <!-- Cookie Categories -->
+        <section class="cookie-categories">
+            <h2 class="section-title">Types of Cookies We Use</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon essential">🔒</div>
+                        <h3 class="category-title">Essential Cookies</h3>
+                    </div>
+                    <p class="category-description">Required for basic website functionality and security features.</p>
+                    <div class="category-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Purpose:</span>
+                            <span class="detail-value">Core functionality</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Duration:</span>
+                            <span class="detail-value">Session - 1 year</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Examples:</span>
+                            <span class="detail-value">Login, cart, security</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon performance">📊</div>
+                        <h3 class="category-title">Performance & Analytics</h3>
+                    </div>
+                    <p class="category-description">Help us understand how visitors use our website to improve performance.</p>
+                    <div class="category-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Purpose:</span>
+                            <span class="detail-value">Analytics & insights</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Duration:</span>
+                            <span class="detail-value">1 day - 2 years</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Examples:</span>
+                            <span class="detail-value">Google Analytics, heatmaps</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon functional">⚙️</div>
+                        <h3 class="category-title">Functional Cookies</h3>
+                    </div>
+                    <p class="category-description">Enable enhanced features and personalized content based on your preferences.</p>
+                    <div class="category-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Purpose:</span>
+                            <span class="detail-value">User preferences</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Duration:</span>
+                            <span class="detail-value">1 week - 1 year</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Examples:</span>
+                            <span class="detail-value">Language, theme, location</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <div class="category-icon marketing">📱</div>
+                        <h3 class="category-title">Marketing & Advertising</h3>
+                    </div>
+                    <p class="category-description">Used to deliver relevant advertisements and track marketing campaigns.</p>
+                    <div class="category-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Purpose:</span>
+                            <span class="detail-value">Personalized ads</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Duration:</span>
+                            <span class="detail-value">1 day - 5 years</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Examples:</span>
+                            <span class="detail-value">Facebook, Google Ads</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Third Party Services -->
+        <section class="third-party">
+            <h2 class="section-title">Third-Party Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h3 class="service-name">Google Analytics</h3>
+                    <p class="service-type">Analytics & Performance</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💳</div>
+                    <h3 class="service-name">Stripe</h3>
+                    <p class="service-type">Payment Processing</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛡️</div>
+                    <h3 class="service-name">Cloudflare</h3>
+                    <p class="service-type">Security & CDN</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📧</div>
+                    <h3 class="service-name">Mailchimp</h3>
+                    <p class="service-type">Email Marketing</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3 class="service-name">Facebook Pixel</h3>
+                    <p class="service-type">Advertising</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3 class="service-name">Hotjar</h3>
+                    <p class="service-type">User Behavior</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cookie Choices -->
+        <section class="cookie-choices">
+            <h2 class="choices-title">Your Cookie Choices</h2>
+            <div class="choice-buttons">
+                <button class="choice-btn btn-accept">Accept All Cookies</button>
+                <button class="choice-btn btn-reject">Reject Non-Essential</button>
+                <button class="choice-btn btn-customize">Customize Settings</button>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <button class="faq-question">
+                    How can I manage my cookie preferences?
+                    <span class="faq-toggle">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>You can manage cookie preferences through our cookie consent banner, browser settings, or by clearing cookies from your device. Most browsers allow you to block or delete cookies.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    What happens if I disable cookies?
+                    <span class="faq-toggle">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Disabling cookies may limit website functionality, affect your shopping experience, and prevent personalized content. Essential cookies are required for basic site operation.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Are cookies safe for my privacy?
+                    <span class="faq-toggle">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p>ShopSphere uses cookies responsibly and follows privacy regulations. We don't store personal information in cookies without your consent and use secure encryption methods.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2 class="cta-title">Need More Information?</h2>
+            <div class="cta-links">
+                <a href="privacy-policy.html" class="cta-link">Privacy Policy</a>
+                <a href="mailto:atharvpote14@gmail.com" class="cta-link">Contact Support</a>
+                <a href="terms-conditions.html" class="cta-link">Terms & Conditions</a>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const isActive = button.classList.contains('active');
+                
+                // Close all FAQs
+                document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
+                document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('active'));
+                
+                // Open clicked FAQ if it wasn't active
+                if (!isActive) {
+                    button.classList.add('active');
+                    answer.classList.add('active');
+                }
+            });
+        });
+
+        // Cookie Choice Buttons (Mock functionality)
+        document.querySelectorAll('.choice-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const action = button.textContent;
+                console.log(`Cookie action: ${action}`);
+                // In a real implementation, this would set actual cookie preferences
+            });
+        });
+    </script>
+</body>
+</html>
